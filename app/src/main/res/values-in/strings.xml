@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Suitmedia</string>
+
+    <string name="description_logo_app">ini adalah logo suitmedia</string>
+    <string name="description_icon_guest">ini adalah gambar tamu</string>
+    <string name="description_event_poster">ini adalah poster acara</string>
+    <string name="description_back_button">ini adalah tombol untuk kembali</string>
+    <string name="description_background">ini adalah gambar latar belakang</string>
+
+    <string name="text_name">Ketik nama anda disini</string>
+    <string name="text_next">Selanjutnya</string>
+    <string name="text_change_language"><u>Change language</u></string>
+    <string name="text_change_user"><u>Ganti pengguna</u></string>
+    <string name="text_hello">Halo!</string>
+    <string name="text_user_name">Nama pengguna</string>
+    <string name="text_events">Acara</string>
+    <string name="text_guest">Tamu Acara</string>
+    <string name="text_event_name">Nama acara</string>
+    <string name="text_event_date">Tanggal acara</string>
+    <string name="text_choose_this">Pilih ini</string>
+    <string name="text_guest_name">Nama tamu</string>
+    <string name="text_guest_birthdate">Tanggal lahir tamu</string>
+    <string name="text_choose_event">Pilih Acara</string>
+    <string name="text_choose_guest">Pilih Tamu Anda</string>
+    <string name="text_close">Menutup Aplikasi</string>
+    <string name="asking_to_close">Apakah anda yakin ingin menutup aplikasi?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+</resources>

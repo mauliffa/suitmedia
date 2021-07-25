@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Suitmedia</string>
+
+    <string name="description_logo_app">this is suitmedia logo</string>
+    <string name="description_icon_guest">this is guest\'s picture</string>
+    <string name="description_event_poster">this is event poster</string>
+    <string name="description_back_button">this is back button</string>
+    <string name="description_background">this is background</string>
+
+    <string name="text_name">Type your name in here</string>
+    <string name="text_next">Next</string>
+    <string name="text_change_language"><u>Change language</u></string>
+    <string name="text_change_user"><u>Change user</u></string>
+    <string name="text_hello">Hello!</string>
+    <string name="text_user_name">User\'s name</string>
+    <string name="text_events">Events</string>
+    <string name="text_guest">Guests</string>
+    <string name="text_event_name">Event name</string>
+    <string name="text_event_date">date</string>
+    <string name="text_choose_this">Choose this</string>
+    <string name="text_guest_name">Guest\'s name</string>
+    <string name="text_guest_birthdate">Guest\'s birthdate</string>
+    <string name="text_choose_event">Choose Event</string>
+    <string name="text_choose_guest">Choose Guest</string>
+    <string name="text_close">Closing The Application</string>
+    <string name="asking_to_close">Do you want to close the app?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
