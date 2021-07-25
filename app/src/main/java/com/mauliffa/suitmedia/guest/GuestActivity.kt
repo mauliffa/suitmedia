@@ -78,10 +78,6 @@ class GuestActivity : AppCompatActivity() {
         val blackberry = number.filter { it % 2 == 0 }
         val android = number.filter { it % 3 == 0 }
         val iphone = number.filter { it % 6 == 0 }
-        //val blackberry = arrayOf("02", "04", "06", "08","10","12", "14", "16", "18","20","22", "24", "26", "28","30",)
-        //val android = arrayOf("03","06", "09","12", "15","18","21","24", "27","30")
-        //val Iphone = arrayOf("06","12","18","24","30",)
-
         val phone = when (date) {
             in iphone -> "IPhone"
             in blackberry -> "Blackberry"
