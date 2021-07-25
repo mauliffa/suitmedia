@@ -10,11 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Suitmedia">
-        <activity android:name=".guest.GuestActivity"/>
-        <activity android:name=".event.EventActivity" />
-        <activity android:name=".MenuActivity" />
+        android:theme="@style/Theme.Suitmedia"
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".guest.GuestActivity" />
+        <activity
+            android:name=".event.EventActivity"
+            android:theme="@style/Second.Theme.Suitmedia" />
     </application>
 
 </manifest>

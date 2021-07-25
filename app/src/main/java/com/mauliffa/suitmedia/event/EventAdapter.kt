@@ -33,7 +33,9 @@ class EventAdapter(private val listEvent: ArrayList<Event>): RecyclerView.Adapte
                 .into(binding.ivEventPhoto)
             binding.tvEventName.text = event.eventName
             binding.tvEventDate.text = event.eventDate
-            binding.btnChooseEvent.setOnClickListener {  onItemClickCallback?.onItemClicked(event)  }
+            binding.tvThemeEvent1.text = event.eventTheme
+            binding.tvDescEvent.text = event.eventDesc
+            itemView.setOnClickListener {  onItemClickCallback?.onItemClicked(event)  }
         }
     }
 

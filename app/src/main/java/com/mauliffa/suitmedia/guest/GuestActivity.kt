@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mauliffa.suitmedia.databinding.ActivityGuestBinding
 import com.mauliffa.suitmedia.guest.retrofit.ApiConfig
 import retrofit2.Call
@@ -28,10 +30,8 @@ class GuestActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getData()
-
-        binding.btnBack.setOnClickListener {
-            super.onBackPressed()
-        }
+        refreshLayout()
+        binding.btnBack.setOnClickListener { super.onBackPressed() }
     }
 
     private fun getData(){
@@ -103,6 +103,18 @@ class GuestActivity : AppCompatActivity() {
         moveIntent.putExtra(EXTRA_GUEST, data)
         setResult(Activity.RESULT_OK, moveIntent)
         finish()
+    }
+
+    private fun refreshLayout(){
+        binding.swipe.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            getData()
+            val handler = Handler()
+            handler.postDelayed(Runnable {
+                if (binding.swipe.isRefreshing){
+                    binding.swipe.isRefreshing = false
+                }
+            }, 3000)
+        })
     }
 
     override fun onDestroy() {

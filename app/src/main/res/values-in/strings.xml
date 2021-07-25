@@ -7,9 +7,10 @@
     <string name="description_event_poster">ini adalah poster acara</string>
     <string name="description_back_button">ini adalah tombol untuk kembali</string>
     <string name="description_background">ini adalah gambar latar belakang</string>
+    <string name="description_map">ini adalah gambar untuk mode map</string>
 
     <string name="text_name">Ketik nama anda disini</string>
-    <string name="text_next">Selanjutnya</string>
+    <string name="text_next">Selesai</string>
     <string name="text_change_language"><u>Change language</u></string>
     <string name="text_change_user"><u>Ganti pengguna</u></string>
     <string name="text_hello">Halo!</string>
@@ -22,6 +23,7 @@
     <string name="text_guest_name">Nama tamu</string>
     <string name="text_guest_birthdate">Tanggal lahir tamu</string>
     <string name="text_choose_event">Pilih Acara</string>
+    <string name="text_search_hint">Masukkan kata</string>
     <string name="text_choose_guest">Pilih Tamu Anda</string>
     <string name="text_close">Menutup Aplikasi</string>
     <string name="asking_to_close">Apakah anda yakin ingin menutup aplikasi?</string>

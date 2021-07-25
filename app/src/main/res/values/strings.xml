@@ -8,7 +8,7 @@
     <string name="description_background">this is background</string>
 
     <string name="text_name">Type your name in here</string>
-    <string name="text_next">Next</string>
+    <string name="text_next">Done</string>
     <string name="text_change_language"><u>Change language</u></string>
     <string name="text_change_user"><u>Change user</u></string>
     <string name="text_hello">Hello!</string>
@@ -21,9 +21,11 @@
     <string name="text_guest_name">Guest\'s name</string>
     <string name="text_guest_birthdate">Guest\'s birthdate</string>
     <string name="text_choose_event">Choose Event</string>
+    <string name="text_search_hint">Type here</string>
     <string name="text_choose_guest">Choose Guest</string>
     <string name="text_close">Closing The Application</string>
     <string name="asking_to_close">Do you want to close the app?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="description_map">this is go to map button</string>
 </resources>
