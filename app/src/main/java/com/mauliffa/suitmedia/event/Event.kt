@@ -9,5 +9,7 @@ data class Event(
     var eventDate: String,
     var eventPhoto: Int,
     var eventTheme: String,
-    var eventDesc: String
+    var eventDesc: String,
+    var eventLongitude: String,
+    var eventLatitude: String
 ): Parcelable

@@ -25,6 +25,7 @@
     <string name="text_guest_name">Nama tamu</string>
     <string name="text_guest_birthdate">Tanggal lahir tamu</string>
     <string name="text_choose_event">Pilih Acara</string>
+    <string name="text_search">Anda mencari event</string>
     <string name="text_search_hint">Masukkan kata</string>
     <string name="text_choose_guest">Pilih Tamu Anda</string>
     <string name="text_choose_map">Anda memilih menu map view</string>

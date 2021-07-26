@@ -24,6 +24,7 @@
     <string name="text_guest_name">Guest\'s name</string>
     <string name="text_guest_birthdate">Guest\'s birthdate</string>
     <string name="text_choose_event">Choose Event</string>
+    <string name="text_search">You are searching for</string>
     <string name="text_search_hint">Type here</string>
     <string name="text_choose_guest">Choose Guest</string>
     <string name="text_choose_photo">Please add your photo profile</string>

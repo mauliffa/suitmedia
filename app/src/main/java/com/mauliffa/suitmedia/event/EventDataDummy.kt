@@ -37,14 +37,14 @@ object EventDataDummy {
     )
 
     private val theme = arrayOf(
-        "theme",
-        "theme",
-        "theme",
-        "theme",
-        "theme",
-        "theme",
-        "theme",
-        "theme"
+        "Kesehatan",
+        "Kecantikan",
+        "Pengembangan Diri",
+        "Pengembangan Diri",
+        "Hiburan",
+        "Pendidikan",
+        "Pendidikan",
+        "Olahraga"
     )
 
     private val desc = arrayOf(
@@ -58,6 +58,28 @@ object EventDataDummy {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in pretium mi, ut bibendum eros. Donec molestie a magna nec pretium. Aenean porta erat ligula, quis sollicitudin ante semper quis. Quisque bibendum non nulla interdum laoreet. Praesent malesuada eleifend lacus, eget tristique augue tristique ut. Phasellus fringilla, neque ac lobortis sollicitudin, erat mi condimentum mauris, et dignissim mi risus et tortor. Maecenas et dictum justo, in varius lectus. Integer a condimentum felis. Donec faucibus tortor ultrices, tincidunt ex a, rutrum elit. Praesent tincidunt eu massa sed facilisis. Sed vestibulum velit in odio gravida vehicula."
     )
 
+    private val latitude = arrayOf(
+        "-6.193125",
+        "-7.802845",
+        "-6.193125",
+        "-6.193125",
+        "-7.66519",
+        "-6.193125",
+        "-6.25890753",
+        "-6.17540016"
+    )
+
+    private val longitude = arrayOf(
+        "106.821810",
+        "110.374136",
+        "106.821810",
+        "106.821810",
+        "111.31629",
+        "106.821810",
+        "106.766651536",
+        "106.82706955"
+    )
+
     val listData: ArrayList<Event>
         get() {
             val list = arrayListOf<Event>()
@@ -67,7 +89,9 @@ object EventDataDummy {
                     eventDate = date[position],
                     eventPhoto = photo[position],
                     eventTheme = theme[position],
-                    eventDesc = desc[position]
+                    eventDesc = desc[position],
+                    eventLatitude = latitude[position],
+                    eventLongitude = longitude[position]
                 )
                 list.add(event)
             }

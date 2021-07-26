@@ -32,6 +32,12 @@ class EventActivity : AppCompatActivity() {
         _binding = ActivityEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val actionBar = supportActionBar
+        if (actionBar != null){
+            actionBar.setHomeAsUpIndicator(R.drawable.btn_back)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
+
         title = "MESSAGE FROM CODI"
         binding.rvEvent.setHasFixedSize(true)
         eventList.addAll(EventDataDummy.listData)
@@ -66,7 +72,8 @@ class EventActivity : AppCompatActivity() {
         searchView.queryHint = resources.getString(R.string.text_search_hint)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(newText: String): Boolean {
-                Toast.makeText(this@EventActivity, "Anda mencari event $newText", Toast.LENGTH_SHORT).show()
+                val toastSearch = getString(R.string.text_search)
+                Toast.makeText(this@EventActivity, "$toastSearch $newText", Toast.LENGTH_SHORT).show()
                 return true
             }
 
@@ -79,7 +86,7 @@ class EventActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.btn_back_event -> {
+            android.R.id.home -> {
                 super.onBackPressed()
                 true
             }
