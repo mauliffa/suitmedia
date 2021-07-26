@@ -5,11 +5,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.mauliffa.suitmedia.R
 import com.mauliffa.suitmedia.databinding.ActivityGuestBinding
 import com.mauliffa.suitmedia.guest.retrofit.ApiConfig
 import retrofit2.Call
@@ -61,11 +62,14 @@ class GuestActivity : AppCompatActivity() {
                 val date = "${birthdate[8]}${birthdate[9]}"
                 val month = "${birthdate[5]}${birthdate[6]}"
 
+                val prime = getString(R.string.prime)
+                val notPrime = getString(R.string.not_prime)
+
                 checkPhone(date.toInt())
                 if(checkPrime(month.toInt())) {
-                    Toast.makeText (this@GuestActivity, "Month is a prime number", Toast.LENGTH_SHORT).show()
+                    Toast.makeText (this@GuestActivity, prime, Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText (this@GuestActivity, "Month isn't a prime number", Toast.LENGTH_SHORT).show()
+                    Toast.makeText (this@GuestActivity, notPrime, Toast.LENGTH_SHORT).show()
                 }
 
                 sendDataToMenuActivity(data)
@@ -106,15 +110,14 @@ class GuestActivity : AppCompatActivity() {
     }
 
     private fun refreshLayout(){
-        binding.swipe.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+        binding.swipe.setOnRefreshListener {
             getData()
-            val handler = Handler()
-            handler.postDelayed(Runnable {
-                if (binding.swipe.isRefreshing){
+            Handler(Looper.getMainLooper()).postDelayed({
+                if (binding.swipe.isRefreshing) {
                     binding.swipe.isRefreshing = false
                 }
             }, 3000)
-        })
+        }
     }
 
     override fun onDestroy() {

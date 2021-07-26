@@ -19,8 +19,8 @@ import kotlin.collections.ArrayList
 class EventActivity : AppCompatActivity() {
     private var _binding: ActivityEventBinding? = null
     private val binding get() = _binding!!
+
     private val eventList: ArrayList<Event> = arrayListOf()
-    private val newEventList: ArrayList<Event> = arrayListOf()
     private lateinit var listAdapter: EventAdapter
 
     companion object {
@@ -32,6 +32,7 @@ class EventActivity : AppCompatActivity() {
         _binding = ActivityEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        title = "MESSAGE FROM CODI"
         binding.rvEvent.setHasFixedSize(true)
         eventList.addAll(EventDataDummy.listData)
 
@@ -77,16 +78,17 @@ class EventActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.btn_back_event -> {
                 super.onBackPressed()
-                return true
+                true
             }
             R.id.btn_map -> {
-                Toast.makeText(this, "Anda memilih fitur map", Toast.LENGTH_SHORT).show()
-                return true
+                val toastMap = getString(R.string.text_choose_map)
+                Toast.makeText(this, toastMap, Toast.LENGTH_SHORT).show()
+                true
             }
-            else -> return true
+            else -> true
         }
     }
 

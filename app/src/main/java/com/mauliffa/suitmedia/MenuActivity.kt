@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.net.toUri
 import com.mauliffa.suitmedia.databinding.ActivityMenuBinding
 import com.mauliffa.suitmedia.event.Event
 import com.mauliffa.suitmedia.event.EventActivity
@@ -20,10 +22,12 @@ class MenuActivity : AppCompatActivity() {
     private var _binding: ActivityMenuBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var activityResult: ActivityResultLauncher<Intent>
+    private lateinit var activityResultEvent: ActivityResultLauncher<Intent>
+    private lateinit var activityResultGuest: ActivityResultLauncher<Intent>
 
     companion object {
         const val EXTRA_NAME = "extra_name"
+        const val EXTRA_PICTURE = "extra_picture"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +36,19 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val name = intent.getStringExtra(EXTRA_NAME)
+        val picture = intent.getStringExtra(EXTRA_PICTURE)?.toUri()
         binding.tvName.text = name
-
+        binding.ivPhoto.setImageURI(picture)
         binding.progressBar.visibility = View.GONE
 
         binding.btnEvent.setOnClickListener {
             val moveIntent = Intent(this@MenuActivity, EventActivity::class.java)
-            activityResult.launch(moveIntent)
+            activityResultEvent.launch(moveIntent)
         }
 
         binding.btnGuest.setOnClickListener {
             val moveIntent = Intent(this@MenuActivity, GuestActivity::class.java)
-            activityResult.launch(moveIntent)
+            activityResultGuest.launch(moveIntent)
         }
 
         binding.btnLanguage.setOnClickListener {
@@ -56,10 +61,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(moveIntent)
         }
 
-        activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result: ActivityResult? ->
-            if (result?.resultCode == Activity.RESULT_OK) {
-                val eventData = result.data?.getParcelableExtra<Event>(EventActivity.EXTRA_EVENT)
+        activityResultEvent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            resultEvent: ActivityResult? ->
+            if (resultEvent?.resultCode == Activity.RESULT_OK) {
+                val eventData = resultEvent.data?.getParcelableExtra<Event>(EventActivity.EXTRA_EVENT)
                 if (eventData != null) {
                     val txtEventName = getString(R.string.text_event_name)
                     val txtEventDate = getString(R.string.text_event_date)
@@ -67,22 +72,22 @@ class MenuActivity : AppCompatActivity() {
                     val eventDate = eventData.eventDate
                     val text = "\n$txtEventName -> $eventName\n\n$txtEventDate -> $eventDate\n"
                     binding.btnEvent.text = text
+                } else {
+                    Toast.makeText(this, "datanya null nih", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-        activityResult =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
+        activityResultGuest = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                result: ActivityResult? ->
                 if (result?.resultCode == Activity.RESULT_OK) {
-                    val guestData =
-                        result.data?.getParcelableExtra<GuestResponseItem>(GuestActivity.EXTRA_GUEST)
+                    val guestData = result.data?.getParcelableExtra<GuestResponseItem>(GuestActivity.EXTRA_GUEST)
                     if (guestData != null) {
                         val txtGuestName = getString(R.string.text_guest_name)
                         val txtGuestBirthdate = getString(R.string.text_guest_birthdate)
                         val guestName = guestData.name
                         val guestBirthdate = guestData.birthdate
-                        val text =
-                            "\n$txtGuestName -> $guestName\n\n$txtGuestBirthdate -> $guestBirthdate\n"
+                        val text = "\n$txtGuestName -> $guestName\n\n$txtGuestBirthdate -> $guestBirthdate\n"
                         binding.btnGuest.text = text
                     }
                 }

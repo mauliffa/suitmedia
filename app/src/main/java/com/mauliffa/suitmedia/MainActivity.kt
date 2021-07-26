@@ -10,23 +10,52 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
+    companion object{
+        const val IMAGE_REQUEST_CODE = 100
+        var photo: String = ""
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnAddPicture.setOnClickListener { pickPictureFromGallery() }
         binding.btnMenu.setOnClickListener {
             val name = binding.etName.text.toString()
-
-            if (palindromeSentence(name)){
-                Toast.makeText(this, "$name is Palindrome", Toast.LENGTH_LONG).show()
+            if (name.isEmpty() || name.contains("   ")){
+                val toastName = getString(R.string.text_input_name)
+                Toast.makeText(this, toastName, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "$name not Palindrome", Toast.LENGTH_LONG).show()
+                val palindrome = getString(R.string.palindrome)
+                val notPalindrome = getString(R.string.not_palindrome)
+                    if (palindromeSentence(name)) {
+                        Toast.makeText(this, "$name $palindrome", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "$name $notPalindrome", Toast.LENGTH_LONG).show()
+                    }
+                val moveIntent = Intent(this@MainActivity, MenuActivity::class.java)
+                moveIntent.putExtra(MenuActivity.EXTRA_NAME, name)
+                moveIntent.putExtra(MenuActivity.EXTRA_PICTURE, photo)
+                startActivity(moveIntent)
             }
+        }
+    }
 
-            val moveIntent = Intent(this@MainActivity, MenuActivity::class.java)
-            moveIntent.putExtra(MenuActivity.EXTRA_NAME, name)
-            startActivity(moveIntent)
+    private fun pickPictureFromGallery(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
+            if (data != null) {
+                val dataPhoto = data.data
+                photo = dataPhoto.toString()
+                binding.btnAddPicture.setImageURI(dataPhoto)
+            }
         }
     }
 

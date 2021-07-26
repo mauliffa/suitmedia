@@ -3,7 +3,7 @@ package com.mauliffa.suitmedia.event
 import com.mauliffa.suitmedia.R
 
 object EventDataDummy {
-    private val name = arrayOf(
+    val name = arrayOf(
         "Online Counseling",
         "Beauty Class 2021",
         "Webinar: Financial Planner",

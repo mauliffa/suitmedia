@@ -3,6 +3,7 @@
     <string name="app_name">Suitmedia</string>
 
     <string name="description_logo_app">ini adalah logo suitmedia</string>
+    <string name="description_user_photo">ini adalah foto pengguna</string>
     <string name="description_icon_guest">ini adalah gambar tamu</string>
     <string name="description_event_poster">ini adalah poster acara</string>
     <string name="description_back_button">ini adalah tombol untuk kembali</string>
@@ -10,9 +11,10 @@
     <string name="description_map">ini adalah gambar untuk mode map</string>
 
     <string name="text_name">Ketik nama anda disini</string>
-    <string name="text_next">Selesai</string>
+    <string name="text_next">Selanjutnya</string>
     <string name="text_change_language"><u>Change language</u></string>
     <string name="text_change_user"><u>Ganti pengguna</u></string>
+    <string name="text_input_name">Harap masukkan nama anda</string>
     <string name="text_hello">Halo!</string>
     <string name="text_user_name">Nama pengguna</string>
     <string name="text_events">Acara</string>
@@ -25,8 +27,17 @@
     <string name="text_choose_event">Pilih Acara</string>
     <string name="text_search_hint">Masukkan kata</string>
     <string name="text_choose_guest">Pilih Tamu Anda</string>
+    <string name="text_choose_map">Anda memilih menu map view</string>
+    <string name="text_choose_photo">Pilih foto profil terlebih dahulu</string>
     <string name="text_close">Menutup Aplikasi</string>
     <string name="asking_to_close">Apakah anda yakin ingin menutup aplikasi?</string>
+
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
+    <string name="palindrome">adalah kalimat palindrome</string>
+    <string name="not_palindrome">adalah kalimat tidak palindrome</string>
+    <string name="prime">Bulan kelahiran tamu ini adalah bilangan prima</string>
+    <string name="not_prime">Bulan kelahiran tamu ini bukanlah bilangan prima</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="desc_add_photo">Sertakan gambar profil Anda untuk melengkapi profil.</string>
 </resources>
